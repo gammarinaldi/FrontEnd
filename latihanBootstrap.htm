@@ -1,0 +1,259 @@
+<html>
+
+<head>
+    <title>Turney - Event Competitive Platform</title>
+    <script src="jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <style>
+        .gaya {
+            text-align: left;
+            background: lightblue;
+            padding: 20px
+        }
+
+        .gaya:nth-last-child(odd) {
+            background: #f8f8f8;
+        }
+
+        .container-fluid {
+            height: 200px
+        }
+        .carousel {
+            background: #2f4357;
+            margin-top: 20px;
+        }
+        .carousel .item {
+            min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+        }
+        .carousel .item img {
+            margin: 0 auto; /* Align slide image horizontally center */
+        }
+        
+        .container .img {
+            text-align:center;
+        }
+        .container .details {
+            border-left:3px solid #ded4da;
+        }
+        .container .details p {
+            font-size:15px;
+            font-weight:bold;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #myBtn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container-fluid">
+
+        <!-- START NAV BAR -->
+        <div class="row">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="padding:10px 0px 0px 0px">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><b style="font-size:20px; color:#0fc70f;">Turney</b></a>
+                    </div>
+
+                    <div class="navbar-collapse collapse" id="navbar-collapsible">
+
+                        <div class="navbar-form navbar-right btn-group">
+                            <button type="button" class="btn btn-default">Inbox <span class="label label-danger">5</span></button>
+                            <button type="button" class="btn btn-default">Notif <span class="label label-danger">3</span></button>
+                            <button type="button" class="btn btn-default">Leaderboard</button>
+                            <!-- <button type="button" class="btn btn-default">Login/Register</button> -->
+                            <button type="button" class="btn btn-success">Create Event</button>
+                        </div>
+
+                        <!-- START SEARCH BAR -->
+                        <form class="form-horizontal" style="margin:8px 0px 8px 0px" action="/latihanBootstrap.htm">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search tournament, competition, games, contest">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">Search</button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </form>
+                        <!-- END SEARCH BAR -->
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- END NAV BAR -->
+
+        <div style="margin:90px 0px 0px 0px"></div>
+        
+        <!-- START DASHBOARD -->
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10 gaya">
+                <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object dp img-circle" src="https://indowarta.com/hiburan/wp-content/uploads/2017/09/Awkarin-baru.jpg" style="width: 100px;height:100px;">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Karin Novilda (@awkarin)</h4>
+                            <small>Jakarta, Indonesia</small>
+                            <br/><br/>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <button type="button" class="btn btn-default">My Events</button>
+                                <button type="button" class="btn btn-default">My Wishlist</button>
+                                <button type="button" class="btn btn-default">Settings</button>
+                                <button type="button" class="btn btn-default">Logout</button>
+                            </div>
+                            <br/><br/>
+                            TurneyCash : IDR 7,500,000 
+                            <div class="btn-group btn-group-xs" role="group">
+                                <button type="button" class="btn btn-default">Top up</button>
+                                <button type="button" class="btn btn-default">Withdraw</button>
+                                <button type="button" class="btn btn-default">History <span class="label label-danger">2</span></button>
+                            </div>
+                            <hr style="margin:8px auto">
+                            <button type="button" class="btn btn-default">#5 Starbucks Barista (Indonesia)</button>
+                            <button type="button" class="btn btn-default">#12 Mobile Legends (Jakarta)</button>
+                            <button type="button" class="btn btn-default">#24 Kicau Mania Love Bird (Jakarta)</button>
+                            <button type="button" class="btn btn-default">#120 Poker Banting (Jakarta)</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!-- END DASHBOARD -->
+        <br />
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10 gaya">
+                <!-- START CAROUSEL -->
+                <div class="col-xs-12">
+                    <div id="myCarousel" class="carousel slide" data-interval="4000" data-ride="carousel">
+                        <!-- Carousel indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <!-- Wrapper for carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <img src="img/slide1.png" alt="First Slide">
+                                <div class="carousel-caption">
+                                    <h3>What is Turney?</h3>
+                                    <p>Application for find & create competitive events</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="img/slide2.png" alt="Second Slide">
+                                <div class="carousel-caption">
+                                    <h3>Featured Event 2</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img src="img/slide3.png" alt="Third Slide">
+                                <div class="carousel-caption">
+                                    <h3>Featured Event 3</h3>
+                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Carousel controls -->
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- END CAROUSEL -->
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10 gaya">
+                <!-- START CATEGORY -->
+                <center>
+                <h4><b>Trending Events</b></h4>
+                <button type="button" class="btn btn-success" style="margin:2px 0 2px 0">Mobile Legends</button>
+                <button type="button" class="btn btn-success" style="margin:2px 0 2px 0">Futsal</button>
+                <button type="button" class="btn btn-success" style="margin:2px 0 2px 0">Tamiya</button>
+                <button type="button" class="btn btn-success" style="margin:2px 0 2px 0">K-Pop Singing</button>
+                <button type="button" class="btn btn-success" style="margin:2px 0 2px 0">Kicau Mania</button>
+                <br /><br />
+                <h4><b>Category</b></h4>
+                <button type="button" class="btn btn-primary" style="margin:2px 0 2px 0">E-Sports</button>
+                <button type="button" class="btn btn-primary" style="margin:2px 0 2px 0">Sports</button>
+                <button type="button" class="btn btn-primary" style="margin:2px 0 2px 0">Games</button>
+                <button type="button" class="btn btn-primary" style="margin:2px 0 2px 0">Contest</button>
+                <br /><br />
+                <h4><b>Location</b></h4>
+                <button type="button" class="btn btn-default" style="margin:2px 0 2px 0">Jakarta</button>
+                <button type="button" class="btn btn-default" style="margin:2px 0 2px 0">Tangsel</button>
+                <button type="button" class="btn btn-default" style="margin:2px 0 2px 0">Depok</button>
+                <button type="button" class="btn btn-default" style="margin:2px 0 2px 0">Kab.Tangerang</button>
+                <button type="button" class="btn btn-default" style="margin:2px 0 2px 0">Kota Tangerang</button>
+                <button type="button" class="btn btn-default" style="margin:2px 0 2px 0">Bekasi</button>
+                <button type="button" class="btn btn-default" style="margin:2px 0 2px 0">Karawang</button>
+                </center>
+                <!-- END CATEGORY -->
+            </div>
+        </div>
+
+        <br />
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10 gaya">
+                <h4><b>Marketplace</b></h4>
+            </div>
+        </div>
+
+    </div> <!-- END OF CONTAINER -->
+
+    <!-- START BACK TO TOP BUTTON -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <!-- END BACK TO TOP BUTTON -->
+
+</body>
+
+</html>
